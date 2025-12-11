@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { PersonalProfile } from './components/PersonalProfile';
-import { FaTasks, FaLightbulb, FaBalanceScale, FaMagic } from 'react-icons/fa';
 
 function App() {
   const [showProfile, setShowProfile] = useState(false);
@@ -13,15 +12,13 @@ function App() {
           id: "gantt",
           name: "Light Gantt",
           description: "A lightweight Gantt chart tool for efficient project management and timeline visualization.",
-          link: "/apps/light-gantt/",
-          icon: <FaTasks className="w-6 h-6" />
+          link: "/apps/light-gantt/" 
         },
         {
           id: "problem-solver",
           name: "Problem Solver",
           description: "AI-powered assistant to help you break down and solve complex problems systematically.",
-          link: "/apps/problem-solver/",
-          icon: <FaLightbulb className="w-6 h-6" />
+          link: "/apps/problem-solver/" 
         }
       ]
     },
@@ -31,16 +28,14 @@ function App() {
         {
           id: "life-balance",
           name: "Balance of Life",
-          description: "An AI tool to explore the balance between conflicting values like 'Past vs Present' or 'Love vs Freedom', offering inspiring quotes to reveal what truly matters.",
-          link: "/apps/balance-of-life/",
-          icon: <FaBalanceScale className="w-6 h-6" />
+          description: "An AI tool to explore the balance between conflicting values in life, offering inspiring quotes to reveal what truly matters.",
+          link: "/apps/balance-of-life/" 
         },
         {
           id: "text-animation",
           name: "Text Animation",
           description: "Showcase 3D text animation effects with particles. Customize rotation, speed, particle size, and text to create stunning visuals.",
-          link: "/apps/text-animation/",
-          icon: <FaMagic className="w-6 h-6" />
+          link: "/apps/text-animation/" 
         }
       ]
     }
@@ -87,12 +82,7 @@ function App() {
                 >
                   <div className="flex flex-col h-full justify-between">
                     <div>
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="p-2 rounded-lg bg-gray-700/50 text-blue-400 group-hover:bg-blue-500/20 group-hover:text-blue-300 transition-colors">
-                          {app.icon}
-                        </div>
-                        <h3 className="text-2xl font-bold text-gray-100 group-hover:text-blue-400 transition-colors">{app.name}</h3>
-                      </div>
+                      <h3 className="text-2xl font-bold mb-3 text-gray-100 group-hover:text-blue-400 transition-colors">{app.name}</h3>
                       <p className="text-gray-400 leading-relaxed">{app.description}</p>
                     </div>
                     <div className="mt-6 flex items-center text-blue-400 font-semibold opacity-0 group-hover:opacity-100 transform translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300">
