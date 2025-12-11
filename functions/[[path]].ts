@@ -19,16 +19,18 @@ export async function onRequest(context) {
 
     if (targetOrigin) {
       // 3. Construct the new URL to fetch from the hidden app
-      // We keep the path intact so /apps/weather/assets/style.css 
-      // maps correctly if the target app handles the base path.
-      
-      // If your sub-app has `base: '/apps/weather/'` set in Vite, 
-      // we usually just want to forward the path as is, but point to the new domain.
-      
       const newUrl = new URL(context.request.url);
       newUrl.protocol = "https:";
       newUrl.hostname = new URL(targetOrigin).hostname;
       newUrl.port = ""; // Ensure no port issues
+      
+      // IMPORTANT: Rewrite the path to remove the /apps/appName prefix
+      // because the target app is likely deployed at the root of its own domain.
+      // e.g. /apps/balance-of-life/assets/index.js -> /assets/index.js
+      const prefix = `/apps/${appName}`;
+      if (newUrl.pathname.startsWith(prefix)) {
+        newUrl.pathname = newUrl.pathname.replace(prefix, '') || '/';
+      }
       
       // Create a mutable request based on the original
       const newRequest = new Request(newUrl.toString(), {
