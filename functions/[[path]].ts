@@ -6,7 +6,8 @@ export async function onRequest(context) {
   const appMappings = {
     "light-gantt": "https://light-gantt.pages.dev",
     "problem-solver": "https://ps-a3.pages.dev",
-    "balance-of-life": "https://life-balance.pages.dev"
+    "balance-of-life": "https://life-balance.pages.dev",
+    "text-animation": "https://particle-text.pages.dev"
   };
 
   // 2. Check if the user is trying to visit an app
