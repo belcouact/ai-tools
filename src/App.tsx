@@ -1,4 +1,10 @@
+import { useState } from 'react';
+import { PersonalProfile } from './components/PersonalProfile';
+import { FaTasks, FaLightbulb, FaBalanceScale, FaMagic } from 'react-icons/fa';
+
 function App() {
+  const [showProfile, setShowProfile] = useState(false);
+
   const categories = [
     {
       title: "For Work",
@@ -7,13 +13,15 @@ function App() {
           id: "gantt",
           name: "Light Gantt",
           description: "A lightweight Gantt chart tool for efficient project management and timeline visualization.",
-          link: "/apps/light-gantt/" 
+          link: "/apps/light-gantt/",
+          icon: <FaTasks className="w-6 h-6" />
         },
         {
           id: "problem-solver",
           name: "Problem Solver",
           description: "AI-powered assistant to help you break down and solve complex problems systematically.",
-          link: "/apps/problem-solver/" 
+          link: "/apps/problem-solver/",
+          icon: <FaLightbulb className="w-6 h-6" />
         }
       ]
     },
@@ -24,21 +32,40 @@ function App() {
           id: "life-balance",
           name: "Balance of Life",
           description: "An AI tool to explore the balance between conflicting values like 'Past vs Present' or 'Love vs Freedom', offering inspiring quotes to reveal what truly matters.",
-          link: "/apps/balance-of-life/" 
+          link: "/apps/balance-of-life/",
+          icon: <FaBalanceScale className="w-6 h-6" />
         },
         {
           id: "text-animation",
           name: "Text Animation",
           description: "Showcase 3D text animation effects with particles. Customize rotation, speed, particle size, and text to create stunning visuals.",
-          link: "/apps/text-animation/" 
+          link: "/apps/text-animation/",
+          icon: <FaMagic className="w-6 h-6" />
         }
       ]
     }
   ];
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white font-sans p-10 flex flex-col items-center">
-      <header className="max-w-5xl w-full mx-auto mb-12 text-center">
+    <div className="min-h-screen bg-gray-900 text-white font-sans p-10 flex flex-col items-center relative">
+      {/* Profile Trigger */}
+      <div className="absolute top-8 right-8 z-10">
+        <button 
+          onClick={() => setShowProfile(true)}
+          className="flex items-center justify-center p-1 rounded-full bg-gray-800/80 hover:bg-gray-700 border border-gray-700 hover:border-blue-500 transition-all group"
+          aria-label="Open Profile"
+        >
+          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 p-[1px]">
+            <img 
+              src="/alex.png" 
+              alt="Alex" 
+              className="w-full h-full rounded-full object-cover"
+            />
+          </div>
+        </button>
+      </div>
+
+      <header className="max-w-5xl w-full mx-auto mb-12 text-center pt-10">
         <h1 className="text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 mb-4">
           AI Tools Hub
         </h1>
@@ -60,7 +87,12 @@ function App() {
                 >
                   <div className="flex flex-col h-full justify-between">
                     <div>
-                      <h3 className="text-2xl font-bold mb-3 text-gray-100 group-hover:text-blue-400 transition-colors">{app.name}</h3>
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="p-2 rounded-lg bg-gray-700/50 text-blue-400 group-hover:bg-blue-500/20 group-hover:text-blue-300 transition-colors">
+                          {app.icon}
+                        </div>
+                        <h3 className="text-2xl font-bold text-gray-100 group-hover:text-blue-400 transition-colors">{app.name}</h3>
+                      </div>
                       <p className="text-gray-400 leading-relaxed">{app.description}</p>
                     </div>
                     <div className="mt-6 flex items-center text-blue-400 font-semibold opacity-0 group-hover:opacity-100 transform translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300">
@@ -75,8 +107,13 @@ function App() {
       </div>
       
       <footer className="mt-auto pt-20 text-gray-500 text-sm">
-        &copy; {new Date().getFullYear()} AI Tools Created with Gemini-3-Pro-Preview by Alex Luo.
+        &copy; {new Date().getFullYear()} AI Tools Designed by Alex Luo, Created with Gemini-3-Pro-Preview.
       </footer>
+
+      {/* Personal Profile Overlay */}
+      {showProfile && (
+        <PersonalProfile onClose={() => setShowProfile(false)} />
+      )}
     </div>
   );
 }
