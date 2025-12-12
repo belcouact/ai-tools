@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { FaReact, FaServer, FaRobot, FaCode, FaGraduationCap, FaPalette } from 'react-icons/fa';
 
 interface PersonalProfileProps {
   onClose: () => void;
@@ -25,6 +26,8 @@ export function PersonalProfile({ onClose }: PersonalProfileProps) {
       ],
       techStackTitle: "Tech Stack & Tools",
       techStackLabels: {
+        frontend: "Frontend",
+        backend: "Backend",
         content: "Content Generation",
         audio: "Audio Generation",
         code: "Code Generation",
@@ -56,6 +59,8 @@ export function PersonalProfile({ onClose }: PersonalProfileProps) {
       ],
       techStackTitle: "技术栈与工具",
       techStackLabels: {
+        frontend: "前端开发",
+        backend: "后端开发",
         content: "内容生成",
         audio: "音频生成",
         code: "代码生成",
@@ -195,6 +200,8 @@ export function PersonalProfile({ onClose }: PersonalProfileProps) {
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {[
+                  { label: t.techStackLabels.frontend, val: "React, TypeScript, Tailwind CSS", color: "cyan" },
+                  { label: t.techStackLabels.backend, val: "Cloudflare Workers (Serverless)", color: "orange" },
                   { label: t.techStackLabels.content, val: "DeepSeek/Kimi API", color: "blue" },
                   { label: t.techStackLabels.code, val: "Trae + Gemini-3-Pro-Preview", color: "purple" },
                   { label: t.techStackLabels.deploy, val: "Github + Cloudflare", color: "pink" },
@@ -216,12 +223,19 @@ export function PersonalProfile({ onClose }: PersonalProfileProps) {
           <section className="px-8 pt-10">
             <h2 className="text-2xl font-bold text-center mb-8">{t.interestsTitle}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {t.interestsList.map((interest) => (
-                <div key={interest.title} className="p-5 rounded-xl bg-gray-800/50 hover:bg-gray-750 transition-colors border border-gray-800 hover:border-gray-700">
-                  <h3 className="text-lg font-bold text-white mb-2">{interest.title}</h3>
-                  <p className="text-gray-400 text-sm">{interest.desc}</p>
-                </div>
-              ))}
+              {t.interestsList.map((interest, index) => {
+                const icons = [FaRobot, FaCode, FaGraduationCap, FaPalette];
+                const Icon = icons[index];
+                return (
+                  <div key={interest.title} className="p-5 rounded-xl bg-gray-800/50 hover:bg-gray-750 transition-colors border border-gray-800 hover:border-gray-700">
+                    <div className="flex items-center gap-3 mb-2">
+                      <Icon className="w-6 h-6 text-blue-400" />
+                      <h3 className="text-lg font-bold text-white">{interest.title}</h3>
+                    </div>
+                    <p className="text-gray-400 text-sm">{interest.desc}</p>
+                  </div>
+                );
+              })}
             </div>
           </section>
         </div>

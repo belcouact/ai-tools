@@ -18,8 +18,8 @@ function App() {
         },
         {
           id: "problem-solver",
-          name: "Problem Solver",
-          description: "AI-powered assistant to help you break down and solve complex problems systematically.",
+          name: "Problem Solver for Manufacturing",
+          description: "AI-powered assistant to help you solve complex problems systematically. Custmized for manufacturing related problems.",
           link: "/apps/problem-solver/",
           icon: <FaPuzzlePiece className="w-8 h-8 text-purple-500" />
         }
