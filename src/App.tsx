@@ -51,14 +51,14 @@ function App() {
           id: "english-learning",
           name: "English Learning",
           description: "An interactive English learning tool designed to help you improve your language skills effectively.",
-          link: "https://english-learning-2en.pages.dev",
+          link: "/apps/english-learning/",
           icon: <FaGraduationCap className="w-8 h-8 text-yellow-500" />
         },
         {
           id: "geogenius",
           name: "GeoGenius AI",
           description: "A tool that can search or select a location and ask AI about it.",
-          link: "https://geogenius.pages.dev/",
+          link: "/apps/geogenius/",
           icon: <FaGlobe className="w-8 h-8 text-cyan-500" />
         }
       ]
