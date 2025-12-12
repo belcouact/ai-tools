@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaReact, FaServer, FaRobot, FaCode, FaGraduationCap, FaPalette } from 'react-icons/fa';
+import { FaRobot, FaCode, FaGraduationCap, FaPalette } from 'react-icons/fa';
 
 interface PersonalProfileProps {
   onClose: () => void;
