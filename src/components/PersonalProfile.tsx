@@ -166,7 +166,6 @@ export function PersonalProfile({ onClose }: PersonalProfileProps) {
                   {t.aboutTitle}
                 </h2>
                 <div className="space-y-3">
-                  <h3 className="text-base font-semibold text-blue-200">{t.aboutSubtitle}</h3>
                   <p className="text-gray-400 text-sm leading-relaxed">
                     {t.aboutDesc}
                   </p>
