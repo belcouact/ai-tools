@@ -57,7 +57,7 @@ function App() {
         {
           id: "geogenius",
           name: "GeoGenius AI",
-          description: "A tool that can search or select a location and ask AI about it.",
+          description: "A tool with 3D earth visualization and AI query capabilities, with location search or a single click anywhere on the map.",
           link: "/apps/geogenius/",
           icon: <FaGlobe className="w-8 h-8 text-cyan-500" />
         }
