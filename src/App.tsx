@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { PersonalProfile } from './components/PersonalProfile';
-import { FaStream, FaPuzzlePiece, FaBalanceScale, FaMagic } from 'react-icons/fa';
+import { FaStream, FaPuzzlePiece, FaBalanceScale, FaMagic, FaGraduationCap } from 'react-icons/fa';
 
 function App() {
   const [showProfile, setShowProfile] = useState(false);
@@ -41,6 +41,18 @@ function App() {
           description: "Showcase 3D text animation effects with particles. Customize rotation, speed, particle size, and text to create stunning visuals.",
           link: "/apps/text-animation/",
           icon: <FaMagic className="w-8 h-8 text-pink-500" />
+        }
+      ]
+    },
+    {
+      title: "For Edu",
+      apps: [
+        {
+          id: "english-learning",
+          name: "English Learning",
+          description: "An interactive English learning tool designed to help you improve your language skills effectively.",
+          link: "https://english-learning-2en.pages.dev",
+          icon: <FaGraduationCap className="w-8 h-8 text-yellow-500" />
         }
       ]
     }
