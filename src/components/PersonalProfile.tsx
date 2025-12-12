@@ -15,7 +15,6 @@ export function PersonalProfile({ onClose }: PersonalProfileProps) {
       tagline: "Passionate about exploring the possibilities of AI applications",
       intro: "I am an explorer passionate about artificial intelligence, dedicated to applying AI technology to education, creation, and daily life. Through continuous learning and practice, I hope to use the power of AI to create more valuable content and tools.",
       aboutTitle: "About Website",
-      aboutSubtitle: "Exploring AI Possibilities",
       aboutDesc: "This website started with a few lingering questions: Generative AI is so powerful, how can it be adapted to personalized needs? In the AI era, is programming and creation really accessible to everyone? How to use AI to help children learn? Through continuous practice and exploration, I try to find answers to these questions.",
       insightsTitle: "Insights in Practice",
       insightsList: [
@@ -48,7 +47,6 @@ export function PersonalProfile({ onClose }: PersonalProfileProps) {
       tagline: "热衷于探索AI应用的各种可能",
       intro: "我是一个对人工智能充满热情的探索者，致力于将AI技术应用于教育、创作和日常生活的各个方面。通过不断学习和实践，我希望能够利用AI的力量创造更有价值的内容和工具。",
       aboutTitle: "关于网站",
-      aboutSubtitle: "探索AI的可能性",
       aboutDesc: "这个网站始于几个萦绕心头的问题：生成式AI如此强大，如何让它适配个性化需求？在AI时代，编程与创造是否真的人人可为？如何利用AI帮助孩子学习？通过不断实践和探索，我试图找到这些问题的答案。",
       insightsTitle: "实践中的感悟",
       insightsList: [
@@ -200,14 +198,14 @@ export function PersonalProfile({ onClose }: PersonalProfileProps) {
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {[
-                  { label: t.techStackLabels.frontend, val: "React, TypeScript, Tailwind CSS", color: "cyan" },
-                  { label: t.techStackLabels.backend, val: "Cloudflare Workers (Serverless)", color: "orange" },
-                  { label: t.techStackLabels.content, val: "DeepSeek/Kimi API", color: "blue" },
-                  { label: t.techStackLabels.code, val: "Trae + Gemini-3-Pro-Preview", color: "purple" },
-                  { label: t.techStackLabels.deploy, val: "Github + Cloudflare", color: "pink" },
+                  { label: t.techStackLabels.frontend, val: "React, TypeScript, Tailwind CSS", colorClass: "text-cyan-400" },
+                  { label: t.techStackLabels.backend, val: "Cloudflare Workers (Serverless)", colorClass: "text-orange-400" },
+                  { label: t.techStackLabels.content, val: "DeepSeek/Kimi API", colorClass: "text-green-400" },
+                  { label: t.techStackLabels.code, val: "Trae + Gemini-3-Pro-Preview", colorClass: "text-purple-400" },
+                  { label: t.techStackLabels.deploy, val: "Github + Cloudflare", colorClass: "text-pink-400" },
                 ].map((item) => (
                   <div key={item.label} className="group">
-                    <div className={`text-${item.color}-400 text-xs font-bold mb-1 uppercase tracking-widest opacity-80 group-hover:opacity-100 transition-opacity`}>
+                    <div className={`${item.colorClass} text-xs font-bold mb-1 uppercase tracking-widest opacity-80 group-hover:opacity-100 transition-opacity`}>
                       {item.label}
                     </div>
                     <div className="text-white font-semibold text-base border-l-2 border-gray-700 pl-3 group-hover:border-gray-500 transition-colors">
