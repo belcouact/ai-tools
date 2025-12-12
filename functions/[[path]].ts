@@ -7,7 +7,9 @@ export async function onRequest(context) {
     "light-gantt": "https://light-gantt.pages.dev",
     "problem-solver": "https://ps-c0x.pages.dev",
     "balance-of-life": "https://life-balance.pages.dev",
-    "text-animation": "https://particle-text.pages.dev"
+    "text-animation": "https://particle-text.pages.dev",
+    "english-learning": "https://english-learning-2en.pages.dev",
+    "geogenius": "https://geogenius.pages.dev",
   };
 
   // 2. Check if the user is trying to visit an app
