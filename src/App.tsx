@@ -72,7 +72,7 @@ function App() {
           id: "cosmos-explorer",
           name: "Cosmos Explorer",
           description: "Show the cosmos system, allowing you to explore planets and celestial bodies.",
-          link: "https://cosmos-explorer-ai.pages.dev/",
+          link: "/apps/cosmos-explorer/",
           icon: <FaRocket className="w-8 h-8 text-indigo-500" />
         }
       ]
