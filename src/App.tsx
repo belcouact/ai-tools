@@ -27,7 +27,7 @@ function App() {
           id: "fault-management",
           name: "Workshop Fault Management",
           description: "Managing machine fault data, using ai to analyze fault and suggest repairing ideas.",
-          link: "/apps/problem-solver/fault-management/",
+          link: "/apps/fault-management/",
           icon: <FaTools className="w-8 h-8 text-orange-500" />
         }
       ]
