@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { PersonalProfile } from './components/PersonalProfile';
-import { FaStream, FaPuzzlePiece, FaBalanceScale, FaMagic, FaGraduationCap, FaGlobe } from 'react-icons/fa';
+import { FaStream, FaPuzzlePiece, FaBalanceScale, FaMagic, FaGraduationCap, FaGlobe, FaTools, FaRocket } from 'react-icons/fa';
 
 function App() {
   const [showProfile, setShowProfile] = useState(false);
@@ -22,6 +22,13 @@ function App() {
           description: "AI-powered assistant to help you solve complex problems systematically. Customized for manufacturing related problems.",
           link: "/apps/problem-solver/",
           icon: <FaPuzzlePiece className="w-8 h-8 text-purple-500" />
+        },
+        {
+          id: "fault-management",
+          name: "Workshop Fault Management",
+          description: "Managing machine fault data, using ai to analyze fault and suggest repairing ideas.",
+          link: "https://ws-fault-management.pages.dev/",
+          icon: <FaTools className="w-8 h-8 text-orange-500" />
         }
       ]
     },
@@ -57,9 +64,16 @@ function App() {
         {
           id: "geogenius",
           name: "GeoGenius AI",
-          description: "A tool with 3D earth visualization and AI query capabilities, with location search or a single click anywhere on the map.",
+          description: "A tool with 3D earth visualization and AI query capabilities. Click anywhere on the map to explore.",
           link: "/apps/geogenius/",
           icon: <FaGlobe className="w-8 h-8 text-cyan-500" />
+        },
+        {
+          id: "cosmos-explorer",
+          name: "Cosmos Explorer",
+          description: "Show the cosmos system, allowing you to explore planets and celestial bodies.",
+          link: "https://cosmos-explorer-ai.pages.dev/",
+          icon: <FaRocket className="w-8 h-8 text-indigo-500" />
         }
       ]
     }

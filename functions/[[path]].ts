@@ -10,6 +10,8 @@ export async function onRequest(context) {
     "text-animation": "https://particle-text.pages.dev",
     "english-learning": "https://english-learning-2en.pages.dev",
     "geogenius": "https://geogenius.pages.dev",
+    "fault-management": "https://ws-fault-management.pages.dev",
+    "cosmos-explorer": "https://cosmos-explorer-ai.pages.dev",
   };
 
   // 2. Check if the user is trying to visit an app
