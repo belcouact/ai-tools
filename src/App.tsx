@@ -58,7 +58,7 @@ function App() {
           id: "language-learning",
           name: "Language Learning",
           description: "An interactive language learning tool designed to help you improve your language skills effectively.",
-          link: "/apps/english-learning/",
+          link: "/apps/language-learning/",
           icon: <FaGraduationCap className="w-8 h-8 text-yellow-500" />
         },
         {
