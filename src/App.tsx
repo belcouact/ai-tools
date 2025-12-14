@@ -26,7 +26,7 @@ function App() {
         {
           id: "fault-management",
           name: "Workshop Fault Management",
-          description: "Managing machine fault data, using ai to analyze fault and suggest repairing ideas.",
+          description: "Managing machine fault data, using AI to analyze fault and suggest repairing ideas.",
           link: "/apps/fault-management/",
           icon: <FaTools className="w-8 h-8 text-orange-500" />
         }
@@ -55,16 +55,16 @@ function App() {
       title: "For Edu",
       apps: [
         {
-          id: "english-learning",
-          name: "English Learning",
-          description: "An interactive English learning tool designed to help you improve your language skills effectively.",
+          id: "language-learning",
+          name: "Language Learning",
+          description: "An interactive language learning tool designed to help you improve your language skills effectively.",
           link: "/apps/english-learning/",
           icon: <FaGraduationCap className="w-8 h-8 text-yellow-500" />
         },
         {
           id: "geogenius",
           name: "GeoGenius AI",
-          description: "A tool with 3D earth visualization and AI query capabilities. Click anywhere on the map to explore.",
+          description: "A tool with 3D earth visualization and AI query capabilities.",
           link: "/apps/geogenius/",
           icon: <FaGlobe className="w-8 h-8 text-cyan-500" />
         },
