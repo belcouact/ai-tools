@@ -4,7 +4,7 @@ import { FaStream, FaPuzzlePiece, FaBalanceScale, FaMagic, FaGraduationCap, FaGl
 
 function App() {
   const [showProfile, setShowProfile] = useState(false);
-  const [theme, setTheme] = useState<'dark' | 'light' | 'sepia'>('dark');
+  const [theme, setTheme] = useState<'dark' | 'light' | 'sepia'>('light');
   const [showThemeMenu, setShowThemeMenu] = useState(false);
 
   const themeStyles = {
