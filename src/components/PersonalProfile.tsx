@@ -3,10 +3,64 @@ import { FaRobot, FaCode, FaGraduationCap, FaPalette } from 'react-icons/fa';
 
 interface PersonalProfileProps {
   onClose: () => void;
+  theme: 'light' | 'dark' | 'sepia';
 }
 
-export function PersonalProfile({ onClose }: PersonalProfileProps) {
+export function PersonalProfile({ onClose, theme }: PersonalProfileProps) {
   const [lang, setLang] = useState<'en' | 'zh'>('en');
+
+  const themeStyles = {
+    light: {
+      bg: 'bg-white',
+      text: 'text-gray-900',
+      textSecondary: 'text-gray-600',
+      border: 'border-gray-200',
+      cardBg: 'bg-gray-50',
+      cardBorder: 'border-gray-200',
+      cardHoverBorder: 'hover:border-blue-500/50',
+      headerText: 'text-gray-800',
+      buttonBg: 'bg-gray-100',
+      buttonText: 'text-gray-600',
+      buttonHover: 'hover:bg-gray-200',
+      activeButton: 'bg-blue-600 text-white shadow-sm',
+      closeButton: 'bg-gray-100 hover:bg-gray-200 text-gray-500 hover:text-gray-900',
+      heroGradient: 'from-blue-100/50 via-white to-white',
+    },
+    dark: {
+      bg: 'bg-gray-900',
+      text: 'text-white',
+      textSecondary: 'text-gray-400',
+      border: 'border-gray-800',
+      cardBg: 'bg-gray-800/50',
+      cardBorder: 'border-gray-700',
+      cardHoverBorder: 'hover:border-blue-500/50',
+      headerText: 'text-white',
+      buttonBg: 'bg-gray-800',
+      buttonText: 'text-gray-400',
+      buttonHover: 'hover:text-gray-200',
+      activeButton: 'bg-blue-600 text-white shadow-sm',
+      closeButton: 'bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-white',
+      heroGradient: 'from-blue-900/20 via-gray-900 to-gray-900',
+    },
+    sepia: {
+      bg: 'bg-[#f4ecd8]',
+      text: 'text-[#5b4636]',
+      textSecondary: 'text-[#8b7355]',
+      border: 'border-[#d3c4a1]',
+      cardBg: 'bg-[#e8dec0]/60',
+      cardBorder: 'border-[#d3c4a1]',
+      cardHoverBorder: 'hover:border-[#8b7355]/50',
+      headerText: 'text-[#433422]',
+      buttonBg: 'bg-[#e8dec0]',
+      buttonText: 'text-[#8b7355]',
+      buttonHover: 'hover:text-[#5b4636]',
+      activeButton: 'bg-amber-600 text-white shadow-sm',
+      closeButton: 'bg-[#e8dec0] hover:bg-[#d3c4a1] text-[#8b7355] hover:text-[#5b4636]',
+      heroGradient: 'from-amber-900/10 via-[#f4ecd8] to-[#f4ecd8]',
+    }
+  };
+
+  const currentTheme = themeStyles[theme];
 
   const translations = {
     en: {
@@ -86,18 +140,18 @@ export function PersonalProfile({ onClose }: PersonalProfileProps) {
       />
       
       {/* Modal Container */}
-      <div className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto scrollbar-hide bg-gray-900 rounded-2xl shadow-2xl animate-scale-in border border-gray-800">
+      <div className={`relative w-full max-w-4xl max-h-[90vh] overflow-y-auto scrollbar-hide ${currentTheme.bg} rounded-2xl shadow-2xl animate-scale-in border ${currentTheme.border} transition-colors duration-300`}>
         
         {/* Sticky Header with Controls */}
-        <div className="sticky top-0 right-0 z-50 flex justify-end items-center gap-4 p-6 bg-gray-900/95 backdrop-blur-sm border-b border-gray-800">
+        <div className={`sticky top-0 right-0 z-50 flex justify-end items-center gap-4 p-6 ${currentTheme.bg}/95 backdrop-blur-sm border-b ${currentTheme.border}`}>
           {/* Language Switcher */}
-          <div className="flex bg-gray-800 rounded-full p-1 border border-gray-700">
+          <div className={`flex ${currentTheme.buttonBg} rounded-full p-1 border ${currentTheme.border}`}>
             <button
               onClick={() => setLang('en')}
               className={`px-3 py-1 rounded-full text-sm font-medium transition-all ${
                 lang === 'en' 
-                  ? 'bg-blue-600 text-white shadow-sm' 
-                  : 'text-gray-400 hover:text-gray-200'
+                  ? currentTheme.activeButton
+                  : `${currentTheme.buttonText} ${currentTheme.buttonHover}`
               }`}
             >
               EN
@@ -106,8 +160,8 @@ export function PersonalProfile({ onClose }: PersonalProfileProps) {
               onClick={() => setLang('zh')}
               className={`px-3 py-1 rounded-full text-sm font-medium transition-all ${
                 lang === 'zh' 
-                  ? 'bg-blue-600 text-white shadow-sm' 
-                  : 'text-gray-400 hover:text-gray-200'
+                  ? currentTheme.activeButton
+                  : `${currentTheme.buttonText} ${currentTheme.buttonHover}`
               }`}
             >
               中文
@@ -117,7 +171,7 @@ export function PersonalProfile({ onClose }: PersonalProfileProps) {
           {/* Close Button */}
           <button 
             onClick={onClose}
-            className="p-2 rounded-full bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-white transition-colors"
+            className={`p-2 rounded-full ${currentTheme.closeButton} transition-colors`}
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -129,7 +183,7 @@ export function PersonalProfile({ onClose }: PersonalProfileProps) {
         <div className="pb-12">
           {/* Hero Section */}
           <section className="relative pt-10 pb-16 overflow-hidden px-8">
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/20 via-gray-900 to-gray-900 z-0"></div>
+            <div className={`absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] ${currentTheme.heroGradient} z-0`}></div>
             <div className="relative z-10">
               <div className="flex flex-col md:flex-row items-center gap-10">
                 <div className="w-32 h-32 md:w-48 md:h-48 flex-shrink-0">
@@ -137,18 +191,18 @@ export function PersonalProfile({ onClose }: PersonalProfileProps) {
                     <img 
                       src="/alex.png" 
                       alt="Profile" 
-                      className="w-full h-full object-cover rounded-full border-4 border-gray-900"
+                      className={`w-full h-full object-cover rounded-full border-4 ${theme === 'light' ? 'border-white' : 'border-gray-900'}`}
                     />
                   </div>
                 </div>
                 <div className="text-center md:text-left space-y-4">
-                  <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+                  <h1 className={`text-4xl md:text-5xl font-bold tracking-tight ${currentTheme.headerText}`}>
                     {t.greeting} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">{t.role}</span>
                   </h1>
-                  <p className="text-lg text-blue-200 font-medium">
+                  <p className="text-lg text-blue-400 font-medium">
                     {t.tagline}
                   </p>
-                  <p className="text-gray-400 leading-relaxed">
+                  <p className={`${currentTheme.textSecondary} leading-relaxed`}>
                     {t.intro}
                   </p>
                 </div>
@@ -160,25 +214,25 @@ export function PersonalProfile({ onClose }: PersonalProfileProps) {
           <section className="px-8 space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Card: About Website */}
-              <div className="bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-blue-500/50 transition-colors shadow-lg">
-                <h2 className="text-xl font-bold text-white flex items-center gap-3 mb-4">
+              <div className={`${currentTheme.cardBg} rounded-2xl p-6 border ${currentTheme.cardBorder} ${currentTheme.cardHoverBorder} transition-colors shadow-lg`}>
+                <h2 className={`text-xl font-bold ${currentTheme.headerText} flex items-center gap-3 mb-4`}>
                   <span className="w-2 h-6 bg-blue-500 rounded-full"></span>
                   {t.aboutTitle}
                 </h2>
                 <div className="space-y-3">
-                  <p className="text-gray-400 text-sm leading-relaxed">
+                  <p className={`${currentTheme.textSecondary} text-sm leading-relaxed`}>
                     {t.aboutDesc}
                   </p>
                 </div>
               </div>
 
               {/* Card: Insights */}
-              <div className="bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-purple-500/50 transition-colors shadow-lg">
-                <h2 className="text-xl font-bold text-white flex items-center gap-3 mb-4">
+              <div className={`${currentTheme.cardBg} rounded-2xl p-6 border ${currentTheme.cardBorder} hover:border-purple-500/50 transition-colors shadow-lg`}>
+                <h2 className={`text-xl font-bold ${currentTheme.headerText} flex items-center gap-3 mb-4`}>
                   <span className="w-2 h-6 bg-purple-500 rounded-full"></span>
                   {t.insightsTitle}
                 </h2>
-                <ul className="space-y-3 text-gray-400 text-sm">
+                <ul className={`space-y-3 ${currentTheme.textSecondary} text-sm`}>
                   {t.insightsList.map((item, index) => (
                     <li key={index} className="flex items-start gap-3">
                       <span className="text-purple-400 mt-1">✦</span>
@@ -190,8 +244,8 @@ export function PersonalProfile({ onClose }: PersonalProfileProps) {
             </div>
 
             {/* Card: Tech Stack */}
-            <div className="bg-gray-800/50 rounded-2xl p-6 border border-gray-700 hover:border-pink-500/50 transition-colors shadow-lg">
-              <h2 className="text-xl font-bold text-white flex items-center gap-3 mb-6">
+            <div className={`${currentTheme.cardBg} rounded-2xl p-6 border ${currentTheme.cardBorder} hover:border-pink-500/50 transition-colors shadow-lg`}>
+              <h2 className={`text-xl font-bold ${currentTheme.headerText} flex items-center gap-3 mb-6`}>
                 <span className="w-2 h-6 bg-pink-500 rounded-full"></span>
                 {t.techStackTitle}
               </h2>
@@ -207,7 +261,7 @@ export function PersonalProfile({ onClose }: PersonalProfileProps) {
                     <div className={`${item.colorClass} text-xs font-bold mb-1 uppercase tracking-widest opacity-80 group-hover:opacity-100 transition-opacity`}>
                       {item.label}
                     </div>
-                    <div className="text-white font-semibold text-base border-l-2 border-gray-700 pl-3 group-hover:border-gray-500 transition-colors">
+                    <div className={`${currentTheme.headerText} font-semibold text-base border-l-2 ${currentTheme.border} pl-3 group-hover:border-gray-500 transition-colors`}>
                       {item.val}
                     </div>
                   </div>
@@ -218,18 +272,18 @@ export function PersonalProfile({ onClose }: PersonalProfileProps) {
 
           {/* Interests */}
           <section className="px-8 pt-10">
-            <h2 className="text-2xl font-bold text-center mb-8">{t.interestsTitle}</h2>
+            <h2 className={`text-2xl font-bold text-center mb-8 ${currentTheme.headerText}`}>{t.interestsTitle}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {t.interestsList.map((interest, index) => {
                 const icons = [FaRobot, FaCode, FaGraduationCap, FaPalette];
                 const Icon = icons[index];
                 return (
-                  <div key={interest.title} className="p-5 rounded-xl bg-gray-800/50 hover:bg-gray-750 transition-colors border border-gray-800 hover:border-gray-700">
+                  <div key={interest.title} className={`p-5 rounded-xl ${currentTheme.cardBg} ${currentTheme.cardHoverBg} transition-colors border ${currentTheme.cardBorder} ${currentTheme.cardHoverBorder}`}>
                     <div className="flex items-center gap-3 mb-2">
                       <Icon className="w-6 h-6 text-blue-400" />
-                      <h3 className="text-lg font-bold text-white">{interest.title}</h3>
+                      <h3 className={`text-lg font-bold ${currentTheme.headerText}`}>{interest.title}</h3>
                     </div>
-                    <p className="text-gray-400 text-sm">{interest.desc}</p>
+                    <p className={`${currentTheme.textSecondary} text-sm`}>{interest.desc}</p>
                   </div>
                 );
               })}
