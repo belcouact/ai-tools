@@ -1,47 +1,46 @@
 import { useState } from 'react';
 import { PersonalProfile } from './components/PersonalProfile';
-import { FaStream, FaPuzzlePiece, FaBalanceScale, FaMagic, FaSun, FaMoon, FaCoffee } from 'react-icons/fa';
-
-type Theme = 'light' | 'dark' | 'sepia';
+import { FaStream, FaPuzzlePiece, FaBalanceScale, FaMagic, FaGraduationCap, FaGlobe, FaTools, FaRocket, FaPalette, FaSun, FaMoon, FaCoffee } from 'react-icons/fa';
 
 function App() {
   const [showProfile, setShowProfile] = useState(false);
-  const [theme, setTheme] = useState<Theme>('light');
+  const [theme, setTheme] = useState<'dark' | 'light' | 'sepia'>('dark');
+  const [showThemeMenu, setShowThemeMenu] = useState(false);
 
   const themeStyles = {
-    light: {
-      bg: 'bg-gray-50',
-      text: 'text-gray-900',
-      textSecondary: 'text-gray-600',
-      cardBg: 'bg-white',
-      cardBorder: 'border-gray-200',
-      cardHoverBorder: 'hover:border-blue-500/50',
-      cardHoverBg: 'hover:bg-gray-50',
-      headerText: 'text-gray-800',
-    },
     dark: {
-      bg: 'bg-gray-900',
-      text: 'text-white',
-      textSecondary: 'text-gray-400',
-      cardBg: 'bg-gray-800/50',
-      cardBorder: 'border-gray-700',
-      cardHoverBorder: 'hover:border-blue-500/50',
-      cardHoverBg: 'hover:bg-gray-800',
-      headerText: 'text-gray-200',
+      container: "bg-gray-900 text-white",
+      headerTitle: "bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500",
+      headerText: "text-gray-400",
+      sectionTitle: "text-gray-200 border-blue-500",
+      card: "bg-gray-800/50 border-gray-700 hover:bg-gray-800 hover:border-blue-500/50",
+      cardTitle: "text-gray-100 group-hover:text-blue-400",
+      cardText: "text-gray-400",
+      footer: "text-gray-500"
+    },
+    light: {
+      container: "bg-gray-50 text-gray-900",
+      headerTitle: "bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600",
+      headerText: "text-gray-600",
+      sectionTitle: "text-gray-800 border-blue-600",
+      card: "bg-white border-gray-200 hover:bg-gray-50 hover:border-blue-400",
+      cardTitle: "text-gray-900 group-hover:text-blue-600",
+      cardText: "text-gray-600",
+      footer: "text-gray-400"
     },
     sepia: {
-      bg: 'bg-[#f4ecd8]',
-      text: 'text-[#5b4636]',
-      textSecondary: 'text-[#8b7355]',
-      cardBg: 'bg-[#e8dec0]/60',
-      cardBorder: 'border-[#d3c4a1]',
-      cardHoverBorder: 'hover:border-[#8b7355]/50',
-      cardHoverBg: 'hover:bg-[#e8dec0]',
-      headerText: 'text-[#433422]',
+      container: "bg-[#f4ecd8] text-[#433422]",
+      headerTitle: "text-[#5b4636]",
+      headerText: "text-[#5b4636]/80",
+      sectionTitle: "text-[#433422] border-[#8b5e3c]",
+      card: "bg-[#e3d5b8]/40 border-[#d0c0a0] hover:bg-[#e3d5b8]/60 hover:border-[#8b5e3c]",
+      cardTitle: "text-[#433422] group-hover:text-[#8b5e3c]",
+      cardText: "text-[#5b4636]",
+      footer: "text-[#8b5e3c]/60"
     }
   };
 
-  const currentTheme = themeStyles[theme];
+  const currentStyle = themeStyles[theme];
 
   const categories = [
     {
@@ -60,6 +59,13 @@ function App() {
           description: "AI-powered assistant to help you solve complex problems systematically. Customized for manufacturing related problems.",
           link: "/apps/problem-solver/",
           icon: <FaPuzzlePiece className="w-8 h-8 text-purple-500" />
+        },
+        {
+          id: "fault-management",
+          name: "Workshop Fault Management",
+          description: "Managing machine fault data, using AI to analyze fault and suggest repairing ideas.",
+          link: "/apps/fault-management/",
+          icon: <FaTools className="w-8 h-8 text-orange-500" />
         }
       ]
     },
@@ -81,34 +87,70 @@ function App() {
           icon: <FaMagic className="w-8 h-8 text-pink-500" />
         }
       ]
+    },
+    {
+      title: "For Edu",
+      apps: [
+        {
+          id: "language-learning",
+          name: "Language Learning",
+          description: "An interactive language learning tool designed to help you improve your language skills effectively.",
+          link: "/apps/language-learning/",
+          icon: <FaGraduationCap className="w-8 h-8 text-yellow-500" />
+        },
+        {
+          id: "geogenius",
+          name: "GeoGenius AI",
+          description: "A tool with 3D earth visualization and AI query capabilities.",
+          link: "/apps/geogenius/",
+          icon: <FaGlobe className="w-8 h-8 text-cyan-500" />
+        },
+        {
+          id: "cosmos-explorer",
+          name: "Cosmos Explorer",
+          description: "Show the cosmos system, allowing you to explore planets and celestial bodies.",
+          link: "/apps/cosmos-explorer/",
+          icon: <FaRocket className="w-8 h-8 text-indigo-500" />
+        }
+      ]
     }
   ];
 
   return (
-    <div className={`min-h-screen ${currentTheme.bg} ${currentTheme.text} font-sans p-10 flex flex-col items-center relative transition-colors duration-300`}>
+    <div className={`min-h-screen font-sans p-10 flex flex-col items-center relative transition-colors duration-300 ${currentStyle.container}`}>
       
-      <div className="absolute top-6 right-6 flex gap-2 z-10">
+      {/* Theme Switcher */}
+      <div className="absolute top-6 right-6 z-40">
         <button
-          onClick={() => setTheme('light')}
-          className={`p-2 rounded-full transition-all ${theme === 'light' ? 'bg-blue-500 text-white shadow-lg' : `${currentTheme.cardBg} ${currentTheme.textSecondary} hover:text-blue-500`}`}
-          title="Light Mode"
+          onClick={() => setShowThemeMenu(!showThemeMenu)}
+          className="p-3 rounded-full bg-gray-800/20 backdrop-blur-sm border border-current hover:opacity-80 transition-all"
+          aria-label="Change Theme"
         >
-          <FaSun className="w-5 h-5" />
+          <FaPalette className="w-5 h-5" />
         </button>
-        <button
-          onClick={() => setTheme('dark')}
-          className={`p-2 rounded-full transition-all ${theme === 'dark' ? 'bg-blue-500 text-white shadow-lg' : `${currentTheme.cardBg} ${currentTheme.textSecondary} hover:text-blue-500`}`}
-          title="Dark Mode"
-        >
-          <FaMoon className="w-5 h-5" />
-        </button>
-        <button
-          onClick={() => setTheme('sepia')}
-          className={`p-2 rounded-full transition-all ${theme === 'sepia' ? 'bg-amber-600 text-white shadow-lg' : `${currentTheme.cardBg} ${currentTheme.textSecondary} hover:text-amber-600`}`}
-          title="Sepia Mode"
-        >
-          <FaCoffee className="w-5 h-5" />
-        </button>
+        
+        {showThemeMenu && (
+          <div className="absolute right-0 mt-2 w-32 py-2 bg-gray-800 rounded-xl shadow-xl border border-gray-700 animate-scale-in overflow-hidden z-50">
+            <button
+              onClick={() => { setTheme('light'); setShowThemeMenu(false); }}
+              className={`w-full px-4 py-2 text-left flex items-center gap-3 hover:bg-gray-700 transition-colors ${theme === 'light' ? 'text-blue-400' : 'text-gray-300'}`}
+            >
+              <FaSun className="w-4 h-4" /> Light
+            </button>
+            <button
+              onClick={() => { setTheme('sepia'); setShowThemeMenu(false); }}
+              className={`w-full px-4 py-2 text-left flex items-center gap-3 hover:bg-gray-700 transition-colors ${theme === 'sepia' ? 'text-amber-400' : 'text-gray-300'}`}
+            >
+              <FaCoffee className="w-4 h-4" /> Sepia
+            </button>
+            <button
+              onClick={() => { setTheme('dark'); setShowThemeMenu(false); }}
+              className={`w-full px-4 py-2 text-left flex items-center gap-3 hover:bg-gray-700 transition-colors ${theme === 'dark' ? 'text-purple-400' : 'text-gray-300'}`}
+            >
+              <FaMoon className="w-4 h-4" /> Dark
+            </button>
+          </div>
+        )}
       </div>
 
       <header className="max-w-5xl w-full mx-auto mb-12 flex flex-col items-center pt-10">
@@ -126,17 +168,17 @@ function App() {
               />
             </div>
           </button>
-          <h1 className="text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500">
+          <h1 className={`text-5xl font-extrabold ${currentStyle.headerTitle}`}>
             Tools Hub
           </h1>
         </div>
-        <p className={`${currentTheme.textSecondary} text-lg`}>My collection of AI-created tools for productivity and fun.</p>
+        <p className={`text-lg ${currentStyle.headerText}`}>My collection of AI-created tools for productivity and fun.</p>
       </header>
 
       <div className="max-w-5xl w-full mx-auto space-y-16">
         {categories.map((category) => (
           <section key={category.title}>
-            <h2 className={`text-3xl font-bold mb-8 ${currentTheme.headerText} border-l-4 border-blue-500 pl-4`}>
+            <h2 className={`text-3xl font-bold mb-8 pl-4 border-l-4 ${currentStyle.sectionTitle}`}>
               {category.title}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -144,15 +186,15 @@ function App() {
                 <a 
                   key={app.id}
                   href={app.link} 
-                  className={`group block p-8 ${currentTheme.cardBg} backdrop-blur-sm rounded-2xl border ${currentTheme.cardBorder} ${currentTheme.cardHoverBorder} ${currentTheme.cardHoverBg} hover:shadow-2xl hover:shadow-blue-500/10 transition-all duration-300 transform hover:-translate-y-1`}
+                  className={`group block p-8 backdrop-blur-sm rounded-2xl border shadow-lg transition-all duration-300 transform hover:-translate-y-1 ${currentStyle.card}`}
                 >
                   <div className="flex flex-col h-full justify-between">
                     <div>
                       <div className="flex items-center gap-4 mb-4">
                         {app.icon}
-                        <h3 className={`text-2xl font-bold ${currentTheme.headerText} group-hover:text-blue-500 transition-colors`}>{app.name}</h3>
+                        <h3 className={`text-2xl font-bold transition-colors ${currentStyle.cardTitle}`}>{app.name}</h3>
                       </div>
-                      <p className={`${currentTheme.textSecondary} leading-relaxed`}>{app.description}</p>
+                      <p className={`leading-relaxed ${currentStyle.cardText}`}>{app.description}</p>
                     </div>
                     <div className="mt-6 flex items-center text-blue-400 font-semibold opacity-0 group-hover:opacity-100 transform translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300">
                       Launch App <span className="ml-2">&rarr;</span>
@@ -165,7 +207,7 @@ function App() {
         ))}
       </div>
       
-      <footer className="mt-auto pt-20 text-gray-500 text-sm">
+      <footer className={`mt-auto pt-20 text-sm ${currentStyle.footer}`}>
         &copy; {new Date().getFullYear()} AI Tools Designed by Alex Luo, Created with Gemini-3-Pro-Preview.
       </footer>
 
