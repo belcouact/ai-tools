@@ -25,6 +25,16 @@ export function PersonalProfile({ onClose, theme }: PersonalProfileProps) {
       activeButton: 'bg-blue-600 text-white shadow-sm',
       closeButton: 'bg-gray-100 hover:bg-gray-200 text-gray-500 hover:text-gray-900',
       heroGradient: 'from-blue-100/50 via-white to-white',
+      accentBlue: 'text-blue-600',
+      accentPurple: 'text-purple-600',
+      roleGradient: 'from-blue-600 to-purple-600',
+      techStack: {
+        frontend: 'text-cyan-600',
+        backend: 'text-orange-600',
+        content: 'text-green-600',
+        code: 'text-purple-600',
+        deploy: 'text-pink-600'
+      }
     },
     dark: {
       bg: 'bg-gray-900',
@@ -41,6 +51,16 @@ export function PersonalProfile({ onClose, theme }: PersonalProfileProps) {
       activeButton: 'bg-blue-600 text-white shadow-sm',
       closeButton: 'bg-gray-800 hover:bg-gray-700 text-gray-400 hover:text-white',
       heroGradient: 'from-blue-900/20 via-gray-900 to-gray-900',
+      accentBlue: 'text-blue-400',
+      accentPurple: 'text-purple-400',
+      roleGradient: 'from-blue-400 to-purple-500',
+      techStack: {
+        frontend: 'text-cyan-400',
+        backend: 'text-orange-400',
+        content: 'text-green-400',
+        code: 'text-purple-400',
+        deploy: 'text-pink-400'
+      }
     },
     sepia: {
       bg: 'bg-[#f4ecd8]',
@@ -57,6 +77,16 @@ export function PersonalProfile({ onClose, theme }: PersonalProfileProps) {
       activeButton: 'bg-amber-600 text-white shadow-sm',
       closeButton: 'bg-[#e8dec0] hover:bg-[#d3c4a1] text-[#8b7355] hover:text-[#5b4636]',
       heroGradient: 'from-amber-900/10 via-[#f4ecd8] to-[#f4ecd8]',
+      accentBlue: 'text-[#8b5e3c]',
+      accentPurple: 'text-[#8b5e3c]',
+      roleGradient: 'from-[#8b5e3c] to-[#5b4636]',
+      techStack: {
+        frontend: 'text-[#2c7a7b]',
+        backend: 'text-[#c05621]',
+        content: 'text-[#2f855a]',
+        code: 'text-[#6b46c1]',
+        deploy: 'text-[#b83280]'
+      }
     }
   };
 
@@ -197,9 +227,9 @@ export function PersonalProfile({ onClose, theme }: PersonalProfileProps) {
                 </div>
                 <div className="text-center md:text-left space-y-4">
                   <h1 className={`text-4xl md:text-5xl font-bold tracking-tight ${currentTheme.headerText}`}>
-                    {t.greeting} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">{t.role}</span>
+                    {t.greeting} <span className={`text-transparent bg-clip-text bg-gradient-to-r ${currentTheme.roleGradient}`}>{t.role}</span>
                   </h1>
-                  <p className="text-lg text-blue-400 font-medium">
+                  <p className={`text-lg ${currentTheme.accentBlue} font-medium`}>
                     {t.tagline}
                   </p>
                   <p className={`${currentTheme.textSecondary} leading-relaxed`}>
@@ -235,7 +265,7 @@ export function PersonalProfile({ onClose, theme }: PersonalProfileProps) {
                 <ul className={`space-y-3 ${currentTheme.textSecondary} text-sm`}>
                   {t.insightsList.map((item, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <span className="text-purple-400 mt-1">✦</span>
+                      <span className={`${currentTheme.accentPurple} mt-1`}>✦</span>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -251,11 +281,11 @@ export function PersonalProfile({ onClose, theme }: PersonalProfileProps) {
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                 {[
-                  { label: t.techStackLabels.frontend, val: "React, TypeScript, Tailwind CSS", colorClass: "text-cyan-400" },
-                  { label: t.techStackLabels.backend, val: "Cloudflare Workers (Serverless)", colorClass: "text-orange-400" },
-                  { label: t.techStackLabels.content, val: "DeepSeek/Kimi API", colorClass: "text-green-400" },
-                  { label: t.techStackLabels.code, val: "Trae + Gemini-3-Pro-Preview", colorClass: "text-purple-400" },
-                  { label: t.techStackLabels.deploy, val: "Github + Cloudflare", colorClass: "text-pink-400" },
+                  { label: t.techStackLabels.frontend, val: "React, TypeScript, Tailwind CSS", colorClass: currentTheme.techStack.frontend },
+                  { label: t.techStackLabels.backend, val: "Cloudflare Workers (Serverless)", colorClass: currentTheme.techStack.backend },
+                  { label: t.techStackLabels.content, val: "DeepSeek/Kimi API", colorClass: currentTheme.techStack.content },
+                  { label: t.techStackLabels.code, val: "Trae + Gemini-3-Pro-Preview", colorClass: currentTheme.techStack.code },
+                  { label: t.techStackLabels.deploy, val: "Github + Cloudflare", colorClass: currentTheme.techStack.deploy },
                 ].map((item) => (
                   <div key={item.label} className="group">
                     <div className={`${item.colorClass} text-xs font-bold mb-1 uppercase tracking-widest opacity-80 group-hover:opacity-100 transition-opacity`}>
@@ -280,7 +310,7 @@ export function PersonalProfile({ onClose, theme }: PersonalProfileProps) {
                 return (
                   <div key={interest.title} className={`p-5 rounded-xl ${currentTheme.cardBg} ${currentTheme.cardHoverBg} transition-colors border ${currentTheme.cardBorder} ${currentTheme.cardHoverBorder}`}>
                     <div className="flex items-center gap-3 mb-2">
-                      <Icon className="w-6 h-6 text-blue-400" />
+                      <Icon className={`w-6 h-6 ${currentTheme.accentBlue}`} />
                       <h3 className={`text-lg font-bold ${currentTheme.headerText}`}>{interest.title}</h3>
                     </div>
                     <p className={`${currentTheme.textSecondary} text-sm`}>{interest.desc}</p>
