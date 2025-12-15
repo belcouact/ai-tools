@@ -10,7 +10,8 @@ export async function onRequest(context) {
     "text-animation": "https://particle-text.pages.dev",
     // "english-learning": "https://english-learning-2en.pages.dev",
     "language-learning": "https://language-learning-blp.pages.dev",
-    "geogenius": "https://geogenius.pages.dev",
+    //"geogenius": "https://geogenius.pages.dev",
+    "geogenius": "https://7605efc3.geogenius.pages.dev/",
     "fault-management": "https://ws-fault-management.pages.dev",
     "cosmos-explorer": "https://cosmos-explorer-ai.pages.dev",
   };
