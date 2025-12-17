@@ -56,7 +56,7 @@ function App() {
         {
           id: "a3-bowler",
           name: "a3-bowler",
-          description: "a performance tracking and problem-solving application designed to help teams monitor metrics and systematically resolve issues using the A3 methodology.",
+          description: "A performance tracking and problem-solving application designed to help teams monitor metrics and systematically resolve issues using the A3 methodology.",
           link: "/apps/a3-bowler/",
           icon: <FaChartLine className="w-8 h-8 text-teal-500" />
         },
