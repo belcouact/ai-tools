@@ -5,6 +5,7 @@ export async function onRequest(context) {
   // Map the "Subpath" on your site to the "Real Cloudflare URL"
   const appMappings = {
     "light-gantt": "https://light-gantt.pages.dev",
+    "a3-bowler": "https://a3-bowler.pages.dev",
     "problem-solver": "https://ps-c0x.pages.dev",
     "balance-of-life": "https://life-balance.pages.dev",
     "text-animation": "https://particle-text.pages.dev",
