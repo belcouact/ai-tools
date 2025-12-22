@@ -1,0 +1,3 @@
+User-agent: Google-NotebookLM
+Allow: /
+```[[7](https://www.google.com/url?sa=E&q=https%3A%2F%2Fvertexaisearch.cloud.google.com%2Fgrounding-api-redirect%2FAUZIYQFwf7f8VoevIMlHWXW-_naZCRz7DeJLJBdzl--UdWcTgpMPjPhqU8fdOYyaFGboIG-kL6YaR-wQmHDT1Dm6nXek877GPgc_six-QDC4ZjQgfWDrlhCSH0CYavjNs3uHKt2eGCTXLARdGgHIROKm40_Y2cgURb-03jKHKeqdv6mF1GdmstNd-B2Hy8lJhkOc0A%3D%3D)]
