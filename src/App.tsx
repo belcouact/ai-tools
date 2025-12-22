@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { PersonalProfile } from './components/PersonalProfile';
-import { FaStream, FaPuzzlePiece, FaBalanceScale, FaMagic, FaGraduationCap, FaGlobe, FaTools, FaRocket, FaPalette, FaSun, FaMoon, FaCoffee, FaChartLine } from 'react-icons/fa';
+import { FaStream, FaBalanceScale, FaMagic, FaGraduationCap, FaGlobe, FaTools, FaRocket, FaPalette, FaSun, FaMoon, FaCoffee, FaChartLine } from 'react-icons/fa';
 
 function App() {
   const [showProfile, setShowProfile] = useState(false);
