@@ -60,13 +60,13 @@ function App() {
           link: "/apps/a3-bowler/",
           icon: <FaChartLine className="w-8 h-8 text-teal-500" />
         },
-        {
-          id: "problem-solver",
-          name: "Problem Solver",
-          description: "AI-powered assistant to help you solve complex problems systematically. Customized for manufacturing related problems.",
-          link: "/apps/problem-solver/",
-          icon: <FaPuzzlePiece className="w-8 h-8 text-purple-500" />
-        },
+        // {
+        //   id: "problem-solver",
+        //   name: "Problem Solver",
+        //   description: "AI-powered assistant to help you solve complex problems systematically. Customized for manufacturing related problems.",
+        //   link: "/apps/problem-solver/",
+        //   icon: <FaPuzzlePiece className="w-8 h-8 text-purple-500" />
+        // },
         {
           id: "fault-management",
           name: "Workshop Fault Management",
