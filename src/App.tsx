@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { PersonalProfile } from './components/PersonalProfile';
-import { FaStream, FaBalanceScale, FaMagic, FaGraduationCap, FaGlobe, FaTools, FaRocket, FaPalette, FaSun, FaMoon, FaCoffee, FaChartLine } from 'react-icons/fa';
+import { FaStream, FaBalanceScale, FaMagic, FaGraduationCap, FaGlobe, FaTools, FaRocket, FaPalette, FaSun, FaMoon, FaCoffee } from 'react-icons/fa';
 
 function App() {
   const [showProfile, setShowProfile] = useState(false);
@@ -58,8 +58,13 @@ function App() {
           name: "A3 Bowler",
           description: "A performance tracking and problem-solving application designed to help teams monitor metrics and systematically resolve issues using the A3 methodology.",
           link: "/apps/a3-bowler/",
-          icon: <FaChartLine className="w-8 h-8 text-teal-500" />
+          icon: (
+            <div className="w-8 h-8 rounded-md border border-teal-500 text-teal-500 flex items-center justify-center text-xs font-bold">
+              A&B
+            </div>
+          )
         },
+        /*
         {
           id: "problem-solver",
           name: "Problem Solver",
@@ -67,6 +72,7 @@ function App() {
           link: "/apps/problem-solver/",
           icon: <FaMagic className="w-8 h-8 text-purple-500" />
         },
+        */
         {
           id: "fault-management",
           name: "Workshop Fault Management",
