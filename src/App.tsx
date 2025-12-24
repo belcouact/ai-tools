@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { PersonalProfile } from './components/PersonalProfile';
-import { FaStream, FaPuzzlePiece, FaBalanceScale, FaMagic, FaGraduationCap, FaGlobe, FaTools, FaRocket, FaPalette, FaSun, FaMoon, FaCoffee, FaChartLine } from 'react-icons/fa';
+import { FaStream, FaPuzzlePiece, FaBalanceScale, FaMagic, FaGraduationCap, FaGlobe, FaTools, FaRocket, FaPalette, FaSun, FaMoon, FaCoffee } from 'react-icons/fa';
 
 function App() {
   const [showProfile, setShowProfile] = useState(false);
@@ -55,10 +55,14 @@ function App() {
         },        
         {
           id: "a3-bowler",
-          name: "Bowler & A3",
+          name: "A3 Bowler",
           description: "A performance tracking and problem-solving application designed to help teams monitor metrics and systematically resolve issues using the A3 methodology.",
           link: "/apps/a3-bowler/",
-          icon: <FaChartLine className="w-8 h-8 text-teal-500" />
+          icon: (
+            <div className="w-8 h-8 flex items-center justify-center bg-teal-500 text-white text-xs font-semibold">
+              A&B
+            </div>
+          )
         },
         {
           id: "problem-solver",
