@@ -70,8 +70,15 @@ function App() {
           id: "hoshin-matrix",
           name: "Hoshin Matrix",
           description: "An AI empowered strategy planning tool with Hoshin Matrix",
-          link: "/apps/hoshin-matrix/",
-          icon: <FaBalanceScale className="w-8 h-8 text-emerald-500" />
+          link: "https://hoshin.pages.dev/",
+          icon: (
+            <div className="w-8 h-8 grid grid-cols-2 gap-[2px] p-[1px] rounded-md bg-emerald-500/20">
+              <div className="bg-emerald-500 rounded-sm" />
+              <div className="bg-emerald-500/70 rounded-sm" />
+              <div className="bg-emerald-500/70 rounded-sm" />
+              <div className="bg-emerald-500 rounded-sm" />
+            </div>
+          )
         },
         /*
         {
