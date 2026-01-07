@@ -66,6 +66,13 @@ function App() {
             />
           )
         },
+        {
+          id: "hoshin-matrix",
+          name: "Hoshin Matrix",
+          description: "An AI empowered strategy planning tool with Hoshin Matrix",
+          link: "/apps/hoshin-matrix/",
+          icon: <FaBalanceScale className="w-8 h-8 text-emerald-500" />
+        },
         /*
         {
           id: "problem-solver",
