@@ -1,9 +1,9 @@
-export async function onRequest(context) {
+export async function onRequest(context: { request: Request; env: { ASSETS: { fetch(request: Request): Promise<Response> } } }) {
   const url = new URL(context.request.url);
   
   // 1. Define your App Mappings
   // Map the "Subpath" on your site to the "Real Cloudflare URL"
-  const appMappings = {
+  const appMappings: Record<string, string> = {
     "light-gantt": "https://light-gantt.pages.dev",
     // "a3-bowler": "https://a3-bowler.pages.dev",
     "a3-bowler": "https://a3-bowler-supabase.pages.dev",
