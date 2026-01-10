@@ -67,6 +67,17 @@ function App() {
           )
         },
         {
+          id: "3d-lab-store",
+          name: "Lab Sample Store",
+          description: "An online sample store for QA Lab. With quick search function & 3d view.",
+          link: "/apps/3d-lab-store",
+          icon: (
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-sky-400 via-blue-500 to-indigo-600 flex items-center justify-center text-white text-xs font-semibold tracking-wide">
+              3D
+            </div>
+          )
+        },
+        {
           id: "hoshin-matrix",
           name: "Hoshin Matrix",
           description: "An AI empowered strategy planning tool with Hoshin Matrix",

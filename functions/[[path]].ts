@@ -8,6 +8,7 @@ export async function onRequest(context) {
     // "a3-bowler": "https://a3-bowler.pages.dev",
     "a3-bowler": "https://a3-bowler-supabase.pages.dev",
     "hoshin-matrix": "https://hoshin.pages.dev",
+    "3d-lab-store": "https://3d-lab-store.pages.dev/",
     "problem-solver": "https://ps-c0x.pages.dev",
     "balance-of-life": "https://life-balance.pages.dev",
     "text-animation": "https://particle-text.pages.dev",
