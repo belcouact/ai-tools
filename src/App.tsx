@@ -2,6 +2,29 @@ import { useState } from 'react';
 import { PersonalProfile } from './components/PersonalProfile';
 import { FaStream, FaBalanceScale, FaMagic, FaGraduationCap, FaGlobe, FaRocket, FaPalette, FaSun, FaMoon, FaCoffee } from 'react-icons/fa';
 
+type BoxIconProps = {
+  className?: string;
+};
+
+function BoxIcon({ className }: BoxIconProps) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className={className}
+      aria-hidden="true"
+    >
+      <path
+        d="M4.5 7.5L12 3l7.5 4.5M4.5 7.5L12 12m7.5-4.5L12 12m0 0v9l-7.5-4.5v-9L12 3l7.5 4.5v9L12 21"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
 function App() {
   const [showProfile, setShowProfile] = useState(false);
   const [theme, setTheme] = useState<'dark' | 'light' | 'sepia'>('light');
@@ -72,8 +95,8 @@ function App() {
           description: "An online sample store for QA Lab. With quick search function & 3d view.",
           link: "/apps/3d-lab-store",
           icon: (
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-sky-400 via-blue-500 to-indigo-600 flex items-center justify-center text-white text-xs font-semibold tracking-wide">
-              3D
+            <div className="bg-blue-600 p-2 rounded-xl text-white shadow-lg shadow-blue-600/20">
+              <BoxIcon className="w-6 h-6" />
             </div>
           )
         },
