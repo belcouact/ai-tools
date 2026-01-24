@@ -114,6 +114,17 @@ function App() {
             </div>
           )
         },
+        {
+          id: "schenk-db-schema",
+          name: "Dr. Schenk's DB Schema",
+          description: "A visualization of Dr. Schenk's inspection database schema, with AI as assistant for query geneartion",
+          link: "/apps/schenk-db-schema/",
+          icon: (
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white text-[10px] font-semibold tracking-wide">
+              DB
+            </div>
+          )
+        },
         /*
         {
           id: "problem-solver",
