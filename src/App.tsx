@@ -127,7 +127,7 @@ function App() {
         },
         {
           id: "survey-gen",
-          name: "generate survey with ai",
+          name: "Generate Survey with AI",
           description: "Create, customize and analyze survey with ai",
           link: "/apps/survey-gen/",
           icon: (
