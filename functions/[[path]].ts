@@ -10,6 +10,7 @@ export async function onRequest(context: { request: Request; env: { ASSETS: { fe
     "hoshin-matrix": "https://hoshin.pages.dev",
     "3d-lab-store": "https://3d-lab-store.pages.dev/",
     "schenk-db-schema": "https://schenk-db.pages.dev/",
+    "survey-gen": "https://survey-by-ai.pages.dev/",
     "problem-solver": "https://ps-c0x.pages.dev",
     "balance-of-life": "https://life-balance.pages.dev",
     "text-animation": "https://particle-text.pages.dev",

@@ -125,6 +125,17 @@ function App() {
             </div>
           )
         },
+        {
+          id: "survey-gen",
+          name: "generate survey with ai",
+          description: "create, customize and analyze survey with ai",
+          link: "/apps/survey-gen",
+          icon: (
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white text-[10px] font-semibold tracking-wide">
+              Q&A
+            </div>
+          )
+        },
         /*
         {
           id: "problem-solver",
