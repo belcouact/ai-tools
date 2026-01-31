@@ -5,7 +5,6 @@ export async function onRequest(context: { request: Request; env: { ASSETS: { fe
   // Map the "Subpath" on your site to the "Real Cloudflare URL"
   const appMappings: Record<string, string> = {
     "light-gantt": "https://light-gantt.pages.dev",
-    // "a3-bowler": "https://a3-bowler.pages.dev",
     "a3-bowler": "https://a3-bowler-supabase.pages.dev",
     "hoshin-matrix": "https://hoshin.pages.dev",
     "3d-lab-store": "https://3d-lab-store.pages.dev/",
@@ -14,7 +13,6 @@ export async function onRequest(context: { request: Request; env: { ASSETS: { fe
     "problem-solver": "https://ps-c0x.pages.dev",
     "balance-of-life": "https://life-balance.pages.dev",
     "text-animation": "https://particle-text.pages.dev",
-    // "english-learning": "https://english-learning-2en.pages.dev",
     "language-learning": "https://language-learning-blp.pages.dev",
     "geogenius": "https://geogenius.pages.dev",
     "fault-management": "https://ws-fault-management.pages.dev",
