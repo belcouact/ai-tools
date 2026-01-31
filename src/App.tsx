@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { PersonalProfile } from './components/PersonalProfile';
-import { FaStream, FaBalanceScale, FaMagic, FaGraduationCap, FaGlobe, FaRocket, FaPalette, FaSun, FaMoon, FaCoffee } from 'react-icons/fa';
+import { FaStream, FaBalanceScale, FaMagic, FaGraduationCap, FaGlobe, FaRocket, FaPalette, FaSun, FaMoon, FaCoffee, FaRegListAlt } from 'react-icons/fa';
 
 type BoxIconProps = {
   className?: string;
@@ -128,11 +128,11 @@ function App() {
         {
           id: "survey-gen",
           name: "generate survey with ai",
-          description: "create, customize and analyze survey with ai",
-          link: "/apps/survey-gen",
+          description: "Create, customize and analyze survey with ai",
+          link: "/apps/survey-gen/",
           icon: (
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white text-[10px] font-semibold tracking-wide">
-              Q&A
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white">
+              <FaRegListAlt className="w-4 h-4" />
             </div>
           )
         },
