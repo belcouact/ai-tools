@@ -170,7 +170,7 @@ export function PersonalProfile({ onClose, theme }: PersonalProfileProps) {
   const t = translations[lang];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
+    <div className="fixed inset-0 z-50 flex items-center justify-center">
       {/* Backdrop */}
       <div 
         className="absolute inset-0 bg-black/80 backdrop-blur-sm animate-fade-in"
@@ -178,7 +178,7 @@ export function PersonalProfile({ onClose, theme }: PersonalProfileProps) {
       />
       
       {/* Modal Container */}
-      <div className={`relative w-full max-w-4xl max-h-[90vh] overflow-y-auto scrollbar-hide ${currentTheme.bg} rounded-2xl shadow-2xl animate-scale-in border ${currentTheme.border} transition-colors duration-300`}>
+      <div className={`relative w-full h-full overflow-y-auto scrollbar-hide ${currentTheme.bg} animate-scale-in transition-colors duration-300`}>
         
         {/* Sticky Header with Controls */}
         <div className={`sticky top-0 right-0 z-50 flex justify-end items-center gap-4 p-6 ${currentTheme.bg}/95 backdrop-blur-sm border-b ${currentTheme.border}`}>
