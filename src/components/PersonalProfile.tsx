@@ -34,7 +34,8 @@ export function PersonalProfile({ onClose, theme }: PersonalProfileProps) {
         backend: 'text-orange-600',
         content: 'text-green-600',
         code: 'text-purple-600',
-        deploy: 'text-pink-600'
+        deploy: 'text-pink-600',
+        storage: 'text-sky-600'
       }
     },
     dark: {
@@ -61,7 +62,8 @@ export function PersonalProfile({ onClose, theme }: PersonalProfileProps) {
         backend: 'text-orange-400',
         content: 'text-green-400',
         code: 'text-purple-400',
-        deploy: 'text-pink-400'
+        deploy: 'text-pink-400',
+        storage: 'text-sky-400'
       }
     },
     sepia: {
@@ -88,7 +90,8 @@ export function PersonalProfile({ onClose, theme }: PersonalProfileProps) {
         backend: 'text-[#c05621]',
         content: 'text-[#2f855a]',
         code: 'text-[#6b46c1]',
-        deploy: 'text-[#b83280]'
+        deploy: 'text-[#b83280]',
+        storage: 'text-[#2b6cb0]'
       }
     }
   };
@@ -102,7 +105,7 @@ export function PersonalProfile({ onClose, theme }: PersonalProfileProps) {
       tagline: "Passionate about exploring the possibilities of AI applications",
       intro: "I am an explorer passionate about artificial intelligence, dedicated to applying AI technology to education, creation, and daily life. Through continuous learning and practice, I hope to use the power of AI to create more valuable content and tools.",
       aboutTitle: "About Website",
-      aboutDesc: "This website started with a few lingering questions: Generative AI is so powerful, how can it be adapted to personalized needs? In the AI era, is programming and creation really accessible to everyone? How to use AI to help children learn? Through continuous practice and exploration, I try to find answers to these questions.",
+      aboutDesc: "This website started with a few lingering questions: Generative AI is so powerful, how can it be adapted to personalized needs? In the AI era, is programming and creation really accessible to everyone? How to use AI to help children learn?",
       insightsTitle: "Insights in Practice",
       insightsList: [
         "Reject lying flat, start thinking",
@@ -117,7 +120,8 @@ export function PersonalProfile({ onClose, theme }: PersonalProfileProps) {
         content: "Content Generation",
         audio: "Audio Generation",
         code: "Code Generation",
-        deploy: "Deployment"
+        deploy: "Deployment",
+        storage: "Storage"
       },
       interestsTitle: "Interests",
       interestsList: [
@@ -149,7 +153,8 @@ export function PersonalProfile({ onClose, theme }: PersonalProfileProps) {
         content: "内容生成",
         audio: "音频生成",
         code: "代码生成",
-        deploy: "网页部署"
+        deploy: "网页部署",
+        storage: "存储"
       },
       interestsTitle: "兴趣领域",
       interestsList: [
@@ -289,6 +294,7 @@ export function PersonalProfile({ onClose, theme }: PersonalProfileProps) {
                   { label: t.techStackLabels.content, val: "DeepSeek/Kimi API", colorClass: currentTheme.techStack.content },
                   { label: t.techStackLabels.code, val: "Trae + Gemini-3-Pro-Preview", colorClass: currentTheme.techStack.code },
                   { label: t.techStackLabels.deploy, val: "Github + Cloudflare", colorClass: currentTheme.techStack.deploy },
+                  { label: t.techStackLabels.storage, val: "Supabase PostgreSQL", colorClass: currentTheme.techStack.storage },
                 ].map((item) => (
                   <div key={item.label} className="group">
                     <div className={`${item.colorClass} text-xs font-bold mb-1 uppercase tracking-widest opacity-80 group-hover:opacity-100 transition-opacity`}>
