@@ -30,7 +30,7 @@ function App() {
   const [theme, setTheme] = useState<'dark' | 'light' | 'sepia'>('light');
   const [showThemeMenu, setShowThemeMenu] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const [activeCategory, setActiveCategory] = useState<'All' | 'For Work' | 'For Fun' | 'For Edu'>('All');
+  const [activeCategory, setActiveCategory] = useState<'All' | 'For Work' | 'For Fun' | 'For Edu'>('For Work');
 
   const themeStyles = {
     dark: {
@@ -88,7 +88,7 @@ function App() {
       apps: [
         {
           id: "gantt",
-          name: "Light Gantt",
+          name: "Project Management",
           description: "A lightweight Gantt chart tool for efficient project management and timeline visualization.",
           link: "/apps/light-gantt/",
           icon: <FaStream className="w-8 h-8 text-blue-500" />
@@ -96,7 +96,7 @@ function App() {
         {
           id: "a3-bowler",
           name: "A3 Bowler",
-          description: "A performance tracking and problem-solving application using the A3 methodology.",
+          description: "A performance tracking and problem-solving application using the A3 methodology, with AI as assistant.",
           link: "/apps/a3-bowler/",
           icon: (
             <img
@@ -109,7 +109,7 @@ function App() {
         {
           id: "3d-lab-store",
           name: "Lab Sample Store",
-          description: "An online sample store for QA Lab. With quick search function & 3d view.",
+          description: "An online sample store for QA Lab, with quick search & 3D view.",
           link: "/apps/3d-lab-store",
           icon: (
             <div className="bg-blue-600 p-2 rounded-xl text-white shadow-lg shadow-blue-600/20">
@@ -144,7 +144,7 @@ function App() {
         },
         {
           id: "survey-gen",
-          name: "Generate Survey with AI",
+          name: "Survey Generator",
           description: "Experience the power of AI to create, customize, and analyze surveys with ease.",
           link: "/apps/survey-gen/",
           icon: (
@@ -204,15 +204,15 @@ function App() {
         },
         {
           id: "geogenius",
-          name: "GeoGenius AI",
-          description: "A tool with 3D earth visualization and AI query capabilities.",
+          name: "Earth Explorer",
+          description: "3D earth visualization and interaction with AI.",
           link: "/apps/geogenius/",
           icon: <FaGlobe className="w-8 h-8 text-cyan-500" />
         },
         {
           id: "cosmos-explorer",
           name: "Cosmos Explorer",
-          description: "Show the cosmos system, allowing you to explore planets and celestial bodies.",
+          description: "The cosmos system to explore planets and celestial bodies.",
           link: "/apps/cosmos-explorer/",
           icon: <FaRocket className="w-8 h-8 text-indigo-500" />
         }
