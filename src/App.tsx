@@ -91,7 +91,7 @@ function App() {
           name: "Light Gantt",
           description: "A lightweight Gantt chart tool for efficient project management and timeline visualization.",
           link: "/apps/light-gantt/",
-          icon: <FaStream className="w-8 h-8 text-blue-500" />
+          icon: <FaStream className="w-8 h-8 text-blue-500 transition-transform duration-300 group-hover:rotate-3 group-hover:scale-110" />
         },        
         {
           id: "a3-bowler",
@@ -99,11 +99,13 @@ function App() {
           description: "A performance tracking and problem-solving application using the A3 methodology.",
           link: "/apps/a3-bowler/",
           icon: (
-            <img
-              src="/logo.png"
-              alt="A3 Bowler"
-              className="w-8 h-8 object-contain"
-            />
+            <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-white/5 backdrop-blur-sm shadow-sm shadow-blue-500/20 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:shadow-blue-500/40">
+              <img
+                src="/logo.png"
+                alt="A3 Bowler"
+                className="w-7 h-7 object-contain"
+              />
+            </div>
           )
         },
         {
@@ -112,7 +114,7 @@ function App() {
           description: "An online sample store for QA Lab. With quick search function & 3d view.",
           link: "/apps/3d-lab-store",
           icon: (
-            <div className="bg-blue-600 p-2 rounded-xl text-white shadow-lg shadow-blue-600/20">
+            <div className="bg-blue-600 p-2 rounded-xl text-white shadow-lg shadow-blue-600/20 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:rotate-1 group-hover:shadow-blue-500/40">
               <BoxIcon className="w-6 h-6" />
             </div>
           )
@@ -123,7 +125,7 @@ function App() {
           description: "An AI empowered strategy planning tool with Hoshin Matrix",
           link: "/apps/hoshin-matrix/",
           icon: (
-            <div className="w-8 h-8 grid grid-cols-2 gap-[2px] p-[1px] rounded-md bg-emerald-500/20">
+            <div className="w-8 h-8 grid grid-cols-2 gap-[2px] p-[1px] rounded-md bg-emerald-500/20 transition-transform duration-300 group-hover:translate-y-0.5 group-hover:scale-105">
               <div className="bg-emerald-500 rounded-sm" />
               <div className="bg-emerald-500/70 rounded-sm" />
               <div className="bg-emerald-500/70 rounded-sm" />
@@ -137,7 +139,7 @@ function App() {
           description: "A visualization of Dr. Schenk's inspection database schema, with AI as assistant for query geneartion",
           link: "/apps/schenk-db-schema/",
           icon: (
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white text-[10px] font-semibold tracking-wide">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white text-[10px] font-semibold tracking-wide shadow-sm shadow-emerald-500/30 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:shadow-emerald-400/50">
               DB
             </div>
           )
@@ -148,8 +150,8 @@ function App() {
           description: "Experience the power of AI to create, customize, and analyze surveys with ease.",
           link: "/apps/survey-gen/",
           icon: (
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white">
-              <FaRegListAlt className="w-4 h-4" />
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white shadow-sm shadow-indigo-500/30 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:shadow-indigo-400/50">
+              <FaRegListAlt className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
             </div>
           )
         },
@@ -181,14 +183,14 @@ function App() {
           name: "Balance of Life",
           description: "An AI tool to explore the balance between conflicting values in life, offering inspiring quotes to reveal what truly matters.",
           link: "/apps/balance-of-life/",
-          icon: <FaBalanceScale className="w-8 h-8 text-green-500" />
+          icon: <FaBalanceScale className="w-8 h-8 text-green-500 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:scale-110" />
         },
         {
           id: "text-animation",
           name: "Text Animation",
           description: "Showcase 3D text animation effects with particles. Customize rotation, speed, particle size, and text to create stunning visuals.",
           link: "/apps/text-animation/",
-          icon: <FaMagic className="w-8 h-8 text-pink-500" />
+          icon: <FaMagic className="w-8 h-8 text-pink-500 transition-transform duration-300 group-hover:rotate-6 group-hover:scale-110" />
         }
       ]
     },
@@ -200,21 +202,21 @@ function App() {
           name: "Language Learning",
           description: "An interactive language learning tool designed to help you improve your language skills effectively.",
           link: "/apps/language-learning/",
-          icon: <FaGraduationCap className="w-8 h-8 text-yellow-500" />
+          icon: <FaGraduationCap className="w-8 h-8 text-yellow-500 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:scale-110" />
         },
         {
           id: "geogenius",
           name: "GeoGenius AI",
           description: "A tool with 3D earth visualization and AI query capabilities.",
           link: "/apps/geogenius/",
-          icon: <FaGlobe className="w-8 h-8 text-cyan-500" />
+          icon: <FaGlobe className="w-8 h-8 text-cyan-500 transition-transform duration-300 group-hover:rotate-2 group-hover:scale-110" />
         },
         {
           id: "cosmos-explorer",
           name: "Cosmos Explorer",
           description: "Show the cosmos system, allowing you to explore planets and celestial bodies.",
           link: "/apps/cosmos-explorer/",
-          icon: <FaRocket className="w-8 h-8 text-indigo-500" />
+          icon: <FaRocket className="w-8 h-8 text-indigo-500 transition-transform duration-300 group-hover:-translate-y-1 group-hover:scale-110" />
         }
       ]
     }
@@ -355,18 +357,24 @@ function App() {
                 <a 
                   key={app.id}
                   href={app.link} 
-                  className={`group block p-8 backdrop-blur-sm rounded-2xl border shadow-lg transition-all duration-300 transform hover:-translate-y-1 ${currentStyle.card}`}
+                  className={`group relative block p-8 backdrop-blur-sm rounded-2xl border shadow-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-500/10 ${currentStyle.card}`}
                 >
+                  <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute inset-[-1px] bg-gradient-to-br from-blue-500/25 via-purple-500/10 to-transparent blur-xl" />
+                  </div>
                   <div className="flex flex-col h-full justify-between">
                     <div>
                       <div className="flex items-center gap-4 mb-4">
                         {app.icon}
-                        <h3 className={`text-2xl font-bold transition-colors ${currentStyle.cardTitle}`}>{app.name}</h3>
+                        <h3 className={`text-2xl font-bold tracking-tight transition-colors ${currentStyle.cardTitle}`}>{app.name}</h3>
                       </div>
-                      <p className={`leading-relaxed ${currentStyle.cardText}`}>{app.description}</p>
+                      <p className={`leading-relaxed text-sm md:text-base ${currentStyle.cardText}`}>{app.description}</p>
                     </div>
                     <div className="mt-6 flex items-center text-blue-400 font-semibold opacity-0 group-hover:opacity-100 transform translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300">
-                      Launch App <span className="ml-2">&rarr;</span>
+                      Launch App
+                      <span className="ml-2 inline-block transition-transform duration-300 group-hover:translate-x-1">
+                        &rarr;
+                      </span>
                     </div>
                   </div>
                 </a>
