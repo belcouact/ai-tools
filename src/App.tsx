@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { PersonalProfile } from './components/PersonalProfile';
 import { FaStream, FaBalanceScale, FaMagic, FaGraduationCap, FaGlobe, FaRocket, FaPalette, FaSun, FaMoon, FaCoffee, FaRegListAlt } from 'react-icons/fa';
 
@@ -29,6 +29,8 @@ function App() {
   const [showProfile, setShowProfile] = useState(false);
   const [theme, setTheme] = useState<'dark' | 'light' | 'sepia'>('light');
   const [showThemeMenu, setShowThemeMenu] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [activeCategory, setActiveCategory] = useState<'All' | 'For Work' | 'For Fun' | 'For Edu'>('All');
 
   const themeStyles = {
     dark: {
@@ -64,6 +66,21 @@ function App() {
   };
 
   const currentStyle = themeStyles[theme];
+
+  const backgroundAccentStyles = {
+    dark: "from-blue-500/30 via-purple-500/20 to-transparent",
+    light: "from-blue-500/20 via-purple-500/10 to-transparent",
+    sepia: "from-[#8b5e3c]/40 via-[#f4ecd8]/10 to-transparent"
+  };
+
+  const backgroundAccentBottomStyles = {
+    dark: "from-purple-500/20 via-blue-500/10 to-transparent",
+    light: "from-purple-500/10 via-blue-500/5 to-transparent",
+    sepia: "from-[#8b5e3c]/30 via-[#f4ecd8]/10 to-transparent"
+  };
+
+  const backgroundAccent = backgroundAccentStyles[theme];
+  const backgroundAccentBottom = backgroundAccentBottomStyles[theme];
 
   const categories = [
     {
@@ -128,7 +145,7 @@ function App() {
         {
           id: "survey-gen",
           name: "Generate Survey with AI",
-          description: "Create, customize and analyze survey with ai",
+          description: "Experience the power of AI to create, customize, and analyze surveys with ease.",
           link: "/apps/survey-gen/",
           icon: (
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white">
@@ -203,8 +220,34 @@ function App() {
     }
   ];
 
+  const visibleCategories = useMemo(() => {
+    const query = searchQuery.trim().toLowerCase();
+
+    return categories
+      .filter((category) => activeCategory === 'All' || category.title === activeCategory)
+      .map((category) => ({
+        ...category,
+        apps: category.apps.filter((app) => {
+          if (!query) return true;
+          return (
+            app.name.toLowerCase().includes(query) ||
+            app.description.toLowerCase().includes(query)
+          );
+        })
+      }))
+      .filter((category) => category.apps.length > 0);
+  }, [activeCategory, categories, searchQuery]);
+
   return (
-    <div className={`min-h-screen font-sans p-10 flex flex-col items-center relative transition-colors duration-300 ${currentStyle.container}`}>
+    <div className={`min-h-screen font-sans px-4 py-8 sm:p-10 flex flex-col items-center relative transition-colors duration-300 ${currentStyle.container}`}>
+      <div
+        className={`pointer-events-none absolute inset-x-0 -top-40 h-72 bg-gradient-to-b ${backgroundAccent} blur-3xl opacity-70`}
+        aria-hidden="true"
+      />
+      <div
+        className={`pointer-events-none absolute inset-x-0 bottom-0 h-72 bg-gradient-to-t ${backgroundAccentBottom} blur-3xl opacity-60`}
+        aria-hidden="true"
+      />
       
       {/* Theme Switcher */}
       <div className="absolute top-6 right-6 z-40">
@@ -260,10 +303,49 @@ function App() {
           </h1>
         </div>
         <p className={`text-lg ${currentStyle.headerText}`}>My collection of AI-created tools for productivity and fun.</p>
+        <div className="mt-8 w-full flex flex-col gap-4 md:flex-row md:items-center">
+          <div className="relative flex-1">
+            <input
+              type="search"
+              value={searchQuery}
+              onChange={(event) => setSearchQuery(event.target.value)}
+              placeholder="Search tools by name or purpose"
+              className={`w-full rounded-full px-5 py-3 text-sm md:text-base outline-none backdrop-blur-sm shadow-sm focus:ring-2 focus:ring-blue-400/40 focus:ring-offset-0 transition-all ${
+                theme === 'dark'
+                  ? 'bg-gray-900/60 border border-gray-700 text-gray-100 placeholder:text-gray-500 focus:border-blue-500'
+                  : theme === 'sepia'
+                  ? 'bg-[#f4ecd8]/60 border border-[#d3c4a1] text-[#433422] placeholder:text-[#8b7355] focus:border-[#8b5e3c]'
+                  : 'bg-white/70 border border-gray-300/70 text-gray-900 placeholder:text-gray-400 focus:border-blue-500'
+              }`}
+            />
+            <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center text-xs uppercase tracking-wide text-gray-400">
+              {searchQuery ? 'Filtering' : 'Discover'}
+            </div>
+          </div>
+          <div className="flex flex-wrap gap-2 md:justify-end">
+            {['All', 'For Work', 'For Fun', 'For Edu'].map((label) => {
+              const isActive = activeCategory === label;
+              return (
+                <button
+                  key={label}
+                  type="button"
+                  onClick={() => setActiveCategory(label as typeof activeCategory)}
+                  className={`rounded-full px-4 py-2 text-xs md:text-sm font-semibold border transition-all ${
+                    isActive
+                      ? 'bg-blue-600 text-white border-blue-600 shadow-sm shadow-blue-500/30'
+                      : 'bg-black/5 text-gray-700 border-transparent hover:bg-black/10 hover:text-gray-900'
+                  }`}
+                >
+                  {label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
       </header>
 
       <div className="max-w-5xl w-full mx-auto space-y-16">
-        {categories.map((category) => (
+        {visibleCategories.map((category) => (
           <section key={category.title}>
             <h2 className={`text-3xl font-bold mb-8 pl-4 border-l-4 ${currentStyle.sectionTitle}`}>
               {category.title}
