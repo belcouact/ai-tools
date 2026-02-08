@@ -91,7 +91,11 @@ function App() {
           name: "Project Management",
           description: "A lightweight Gantt chart tool for efficient project management and timeline visualization.",
           link: "/apps/light-gantt/",
-          icon: <FaStream className="w-8 h-8 text-blue-500" />
+          icon: (
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white shadow-lg shadow-blue-500/20">
+              <FaStream className="w-5 h-5" />
+            </div>
+          )
         },        
         {
           id: "a3-bowler",
@@ -99,11 +103,13 @@ function App() {
           description: "A performance tracking and problem-solving application using the A3 methodology, with AI as assistant.",
           link: "/apps/a3-bowler/",
           icon: (
-            <img
-              src="/logo.png"
-              alt="A3 Bowler"
-              className="w-8 h-8 object-contain"
-            />
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-400 to-cyan-500 flex items-center justify-center shadow-lg shadow-blue-400/20 p-2">
+              <img
+                src="/logo.png"
+                alt="A3 Bowler"
+                className="w-full h-full object-contain"
+              />
+            </div>
           )
         },
         {
@@ -112,7 +118,7 @@ function App() {
           description: "An online sample store for QA Lab, with quick search & 3D view.",
           link: "/apps/3d-lab-store",
           icon: (
-            <div className="bg-blue-600 p-2 rounded-xl text-white shadow-lg shadow-blue-600/20">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center text-white shadow-lg shadow-blue-600/20">
               <BoxIcon className="w-6 h-6" />
             </div>
           )
@@ -123,11 +129,13 @@ function App() {
           description: "An AI empowered strategy planning tool with Hoshin Matrix",
           link: "/apps/hoshin-matrix/",
           icon: (
-            <div className="w-8 h-8 grid grid-cols-2 gap-[2px] p-[1px] rounded-md bg-emerald-500/20">
-              <div className="bg-emerald-500 rounded-sm" />
-              <div className="bg-emerald-500/70 rounded-sm" />
-              <div className="bg-emerald-500/70 rounded-sm" />
-              <div className="bg-emerald-500 rounded-sm" />
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400 to-teal-600 flex items-center justify-center shadow-lg shadow-emerald-500/20 p-2">
+              <div className="w-6 h-6 grid grid-cols-2 gap-[2px]">
+                <div className="bg-white rounded-sm" />
+                <div className="bg-white/70 rounded-sm" />
+                <div className="bg-white/70 rounded-sm" />
+                <div className="bg-white rounded-sm" />
+              </div>
             </div>
           )
         },
@@ -137,7 +145,7 @@ function App() {
           description: "A visualization of Dr. Schenk's inspection database schema, with AI as assistant for query geneartion",
           link: "/apps/schenk-db-schema/",
           icon: (
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white text-[10px] font-semibold tracking-wide">
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white shadow-lg shadow-emerald-600/20 text-xs font-bold">
               DB
             </div>
           )
@@ -148,8 +156,8 @@ function App() {
           description: "Experience the power of AI to create, customize, and analyze surveys with ease.",
           link: "/apps/survey-gen/",
           icon: (
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white">
-              <FaRegListAlt className="w-4 h-4" />
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white shadow-lg shadow-indigo-500/20">
+              <FaRegListAlt className="w-5 h-5" />
             </div>
           )
         },
@@ -181,14 +189,22 @@ function App() {
           name: "Balance of Life",
           description: "An AI tool to explore the balance between conflicting values in life, offering inspiring quotes to reveal what truly matters.",
           link: "/apps/balance-of-life/",
-          icon: <FaBalanceScale className="w-8 h-8 text-green-500" />
+          icon: (
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center text-white shadow-lg shadow-green-500/20">
+              <FaBalanceScale className="w-5 h-5" />
+            </div>
+          )
         },
         {
           id: "text-animation",
           name: "Text Animation",
           description: "Showcase 3D text animation effects with particles. Customize rotation, speed, particle size, and text to create stunning visuals.",
           link: "/apps/text-animation/",
-          icon: <FaMagic className="w-8 h-8 text-pink-500" />
+          icon: (
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-pink-500 to-rose-600 flex items-center justify-center text-white shadow-lg shadow-pink-500/20">
+              <FaMagic className="w-5 h-5" />
+            </div>
+          )
         }
       ]
     },
@@ -200,21 +216,33 @@ function App() {
           name: "Language Learning",
           description: "An interactive language learning tool designed to help you improve your language skills effectively.",
           link: "/apps/language-learning/",
-          icon: <FaGraduationCap className="w-8 h-8 text-yellow-500" />
+          icon: (
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-white shadow-lg shadow-amber-500/20">
+              <FaGraduationCap className="w-5 h-5" />
+            </div>
+          )
         },
         {
           id: "geogenius",
           name: "Earth Explorer",
           description: "3D earth visualization and interaction with AI.",
           link: "/apps/geogenius/",
-          icon: <FaGlobe className="w-8 h-8 text-cyan-500" />
+          icon: (
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center text-white shadow-lg shadow-cyan-500/20">
+              <FaGlobe className="w-5 h-5" />
+            </div>
+          )
         },
         {
           id: "cosmos-explorer",
           name: "Cosmos Explorer",
           description: "The cosmos system to explore planets and celestial bodies.",
           link: "/apps/cosmos-explorer/",
-          icon: <FaRocket className="w-8 h-8 text-indigo-500" />
+          icon: (
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center text-white shadow-lg shadow-indigo-500/20">
+              <FaRocket className="w-5 h-5" />
+            </div>
+          )
         }
       ]
     }
